@@ -5,40 +5,35 @@ import PropTypes from "prop-types";
 //   name, tag, location, avatar, followers, views, likes;
 // }
 
-const Profile = (props) => {
-  console.log(props);
+export default function Profile({ name, avatar, tag, location, stats }) {
   return (
     <div className="profile">
       <div className="description">
-        <img
-          src={props.avpropsatar}
-          alt={props.name}
-          className="avatar"
-          width="480"
-        />
-        <p className="name">{props.name}</p>
-        <p className="tag">{props.tag}</p>
-        <p className="location">{props.location}</p>
+        <img src={avatar} alt={name} className="avatar" width="200" />
+        <p className="name">{name}</p>
+        <p className="tag">nickname: {tag}</p>
+        <p className="location">lives in: {location}</p>
       </div>
 
       <ul className="stats">
         <li>
           <span className="label">Followers</span>
-          <span className="quantity">{props.stats.followers}</span>
+          <span className="quantity">{stats.followers}</span>
         </li>
         <li>
           <span className="label">Views</span>
-          <span className="quantity">{props.stats.views}</span>
+          <span className="quantity">{stats.views}</span>
         </li>
         <li>
           <span className="label">Likes</span>
-          <span className="quantity">{props.stats.likes}</span>
+          <span className="quantity">{stats.likes}</span>
         </li>
       </ul>
     </div>
   );
-};
+}
 
-Profile.propTypes = {};
-
-export default Profile;
+// Profile.PropTypes = {
+//   name: propTypes.string,
+//   location: propTypes.string,
+// };
